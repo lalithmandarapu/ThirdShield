@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vendor Risk Submission</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Submit Vendor Risk Request</h1>
+    <form id="vendorForm" enctype="multipart/form-data">
+        <input type="text" name="employee_name" placeholder="Employee Name" required><br>
+        <input type="text" name="vendor_name" placeholder="Vendor Name" required><br>
+        <textarea name="description" placeholder="Description" required></textarea><br>
+        <input type="file" name="document" required><br>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="response"></div>
+
+    
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
