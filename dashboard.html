@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h1>Vendor Risk Dashboard</h1>
+    {% for vendor in vendors %}
+        <div>
+            <h3>{{ vendor.vendor_name }} ({{ vendor.status }})</h3>
+            <p>Requested by: {{ vendor.employee_name }}</p>
+            <p>Risk Score: {{ vendor.risk_score }}</p>
+            <p>Description: {{ vendor.description }}</p>
+            <p>Comments: {{ vendor.comments }}</p>
+            <form method="post" action="/review_vendor/{{ vendor.id }}">
+                <select name="status">
+                    <option value="Approved">Approve</option>
+                    <option value="Rejected">Reject</option>
+                </select>
+                <textarea name="comments" placeholder="Comments"></textarea><br>
+                <button type="submit">Submit Review</button>
+            </form>
+        </div>
+        <hr>
+    {% endfor %}
+</body>
+</html>
