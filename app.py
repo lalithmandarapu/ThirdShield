@@ -5,14 +5,13 @@ import os
 from risk_engine import assess_risk
 from models import db, VendorRequest
 
-app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = 'static/uploads'
+app = Flask(__name__, template_folder="../frontend", static_folder="../static")
+app.config['UPLOAD_FOLDER'] = os.path.join(app.static_folder, 'uploads')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///vendors.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db.init_app(app)
-
-def create_tables():
+with app.app_context():
+    db.init_app(app)
     db.create_all()
 
 @app.route('/')
@@ -24,6 +23,7 @@ def submit_vendor():
     data = request.form
     file = request.files['document']
     filename = secure_filename(file.filename)
+    os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
     path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
     file.save(path)
 
