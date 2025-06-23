@@ -2,23 +2,105 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Admin Dashboard</title>
+    <title>Admin Dashboard - Vendor Risk Evaluation</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .vendor-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .vendor-card h3 {
+            color: #34495e;
+            margin-top: 0;
+        }
+
+        .vendor-card p {
+            margin: 8px 0;
+            color: #555;
+        }
+
+        .status {
+            font-weight: normal;
+            color: #888;
+        }
+
+        .risk-level {
+            font-weight: bold;
+            color: #c0392b; 
+        }
+
+        form {
+            margin-top: 15px;
+        }
+
+        select, textarea, button {
+            display: block;
+            margin-top: 10px;
+            width: 100%;
+            padding: 8px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #27ae60;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #eee;
+            margin-top: 30px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Vendor Risk Dashboard</h1>
+    <h1>Vendor Risk Evaluation Dashboard</h1>
+
     {% for vendor in vendors %}
-        <div>
-            <h3>{{ vendor.vendor_name }} ({{ vendor.status }})</h3>
-            <p>Requested by: {{ vendor.employee_name }}</p>
-            <p>Risk Score: {{ vendor.risk_score }}</p>
-            <p>Description: {{ vendor.description }}</p>
-            <p>Comments: {{ vendor.comments }}</p>
+        <div class="vendor-card">
+            <h3>{{ vendor.vendor_name }} <span class="status">({{ vendor.status }})</span></h3>
+            <p><strong>Requested by:</strong> {{ vendor.employee_name }}</p>
+            <p><strong>Description:</strong> {{ vendor.description }}</p>
+            <p><strong>Risk Score:</strong> {{ vendor.risk_score }}</p>
+            <p><strong>Risk Level:</strong> <span class="risk-level">{{ vendor.risk_level }}</span></p>
+            <p><strong>Risk Description:</strong> {{ vendor.risk_description }}</p>
+            <p><strong>Prevention Measures:</strong> {{ vendor.prevention }}</p>
+
             <form method="post" action="/review_vendor/{{ vendor.id }}">
-                <select name="status">
+                <label><strong>Review Status:</strong></label>
+                <select name="status" required>
                     <option value="Approved">Approve</option>
                     <option value="Rejected">Reject</option>
                 </select>
-                <textarea name="comments" placeholder="Comments"></textarea><br>
+
+                <textarea name="comments" placeholder="Add comments here..." required></textarea>
+
                 <button type="submit">Submit Review</button>
             </form>
         </div>
