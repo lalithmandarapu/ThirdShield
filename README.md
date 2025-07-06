@@ -55,3 +55,46 @@
 
 ## 📂 Project Structure
 
+VREP/
+├── app.py 
+├── models.py 
+├── risk_engine.py 
+├── config.py # Flask configurations
+├── vendors.db # SQLite DB file
+├── static/
+│ ├── style.css # Custom CSS
+│ ├── script.js # JS logic
+│ └── uploads/
+├── templates/
+│ ├── index.html 
+│ ├── dashboard.html 
+│ └── login.html # (optional) 
+├── requirements.txt 
+
+
+---
+
+## 📦 Setup Instructions
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/your-username/VREP.git
+   cd VREP
+
+## Create a Virtual Environment
+
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+## Install Dependencies
+
+pip install -r requirements.txt
+
+
+## Run the App
+
+python app.py
+
+## Access the Portal
+
+http://127.0.0.1:5000/
