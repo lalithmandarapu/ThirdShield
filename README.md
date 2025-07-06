@@ -79,7 +79,7 @@ VREP/
 
 1. **Clone the Repository**
    ```bash
-  [ git clone https://github.com/your-username/VREP.git](https://github.com/lalithmandarapu/ThirdShield)
+ git clone https://github.com/lalithmandarapu/ThirdShield
    cd VREP
 
 ## Create a Virtual Environment
