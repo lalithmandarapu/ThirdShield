@@ -78,9 +78,9 @@ VREP/
 ## 📦 Setup Instructions
 
 1. **Clone the Repository**
-   ```bash
- git clone https://github.com/lalithmandarapu/ThirdShield
-   cd VREP
+ 
+git clone https://github.com/lalithmandarapu/ThirdShield
+cd VREP
 
 ## Create a Virtual Environment
 
