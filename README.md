@@ -56,21 +56,22 @@
 ## 📂 Project Structure
 
 VREP/
-├── app.py 
-├── models.py 
-├── risk_engine.py 
-├── config.py # Flask configurations
-├── vendors.db # SQLite DB file
-├── static/
-│ ├── style.css # Custom CSS
-│ ├── script.js # JS logic
-│ └── uploads/
-├── templates/
-│ ├── index.html 
-│ ├── dashboard.html 
-│ └── login.html # (optional) 
-├── requirements.txt 
+├── app.py
+├── models.py
+├── risk_engine.py
+├── config.py
+├── vendors.db
+├── requirements.txt
 
+├── static/
+│   ├── style.css
+│   ├── script.js
+│   └── uploads/
+
+├── templates/
+│   ├── index.html
+│   ├── dashboard.html
+│   └── login.html
 
 ---
 
@@ -78,7 +79,7 @@ VREP/
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/your-username/VREP.git
+  [ git clone https://github.com/your-username/VREP.git](https://github.com/lalithmandarapu/ThirdShield)
    cd VREP
 
 ## Create a Virtual Environment
